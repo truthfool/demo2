@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.Iterator;
 
 
 public class ApiOriginFilter implements  Filter {
@@ -46,6 +47,11 @@ public class ApiOriginFilter implements  Filter {
         logger.info("Request remote address: {}",request.getRemoteAddr());
         logger.info("Remote Host: {}",request.getRemoteHost());
         logger.info("Header names: {}",request.getHeaderNames().toString());
+        logger.info("Header names: ");
+        Iterator<String> headersList= request.getHeaderNames().asIterator();
+        while(headersList.hasNext()){
+            logger.info(headersList.next());
+        }
 
 
     }
